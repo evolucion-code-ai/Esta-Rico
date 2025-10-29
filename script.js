@@ -8,9 +8,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 behavior: 'smooth',
                 block: 'start'
             });
+            // Cerrar menú móvil si está abierto
+            if (window.innerWidth <= 768) {
+                const navMenu = document.querySelector('.nav-menu');
+                const menuToggle = document.querySelector('.mobile-menu-toggle');
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
         }
     });
 });
+
+// Menú móvil toggle
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
+if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener('click', () => {
+        mobileMenuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer clic fuera
+    document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+            navMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+        }
+    });
+}
 
 // Header scroll effect
 window.addEventListener('scroll', () => {
@@ -24,30 +50,29 @@ window.addEventListener('scroll', () => {
 
 // Fade in animation on scroll
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -100px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, 50);
         }
     });
 }, observerOptions);
 
-document.querySelectorAll('.fade-in').forEach(el => {
+// Observar todos los elementos con animación
+document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .sector-card').forEach(el => {
     observer.observe(el);
 });
 
-
-//CARRUSEL AUTOMÁTICO ASINCRÓNICO
-
-// Función para cambiar al siguiente slide automáticamente
+// CARRUSEL AUTOMÁTICO DE MÁQUINAS
 function autoChangeSlide(carousel) {
     const images = carousel.querySelectorAll('.carousel-img');
     
-    // Encontrar el índice actual
     let currentIndex = 0;
     images.forEach((img, index) => {
         if (img.classList.contains('active')) {
@@ -55,27 +80,17 @@ function autoChangeSlide(carousel) {
         }
     });
     
-    // Remover clase active del slide actual
     images[currentIndex].classList.remove('active');
-    
-    // Calcular nuevo índice (circular)
     let newIndex = (currentIndex + 1) % images.length;
-    
-    // Agregar clase active al nuevo slide
     images[newIndex].classList.add('active');
 }
 
-// Inicializar carruseles automáticos con intervalos diferentes
 function initializeAutoCarousels() {
     const carousels = document.querySelectorAll('.carousel-container');
-    
-    // Intervalos diferentes para cada carrusel (en milisegundos)
-    const intervals = [3500, 4200, 3800]; // Diferentes tiempos para efecto asincrónico
+    const intervals = [3500, 4200, 3800];
     
     carousels.forEach((carousel, index) => {
-        // Usar un intervalo diferente para cada carrusel
         const interval = intervals[index] || 3500;
-        
         setInterval(() => {
             autoChangeSlide(carousel);
         }, interval);
@@ -88,8 +103,8 @@ let brandsPerView = getBrandsPerView();
 let brandsAutoplayInterval;
 
 function getBrandsPerView() {
-    if (window.innerWidth <= 640) return 1;
-    if (window.innerWidth <= 968) return 2;
+    if (window.innerWidth <= 480) return 1;
+    if (window.innerWidth <= 768) return 2;
     return 3;
 }
 
@@ -124,12 +139,11 @@ function updateBrandsCarousel() {
     if (!track || !items.length) return;
     
     const itemWidth = items[0].offsetWidth;
-    const gap = 32; // 2rem = 32px
+    const gap = window.innerWidth <= 480 ? 16 : 32;
     const offset = -(currentBrandsSlide * brandsPerView * (itemWidth + gap));
     
     track.style.transform = `translateX(${offset}px)`;
     
-    // Actualizar dots
     dots.forEach((dot, index) => {
         dot.classList.toggle('active', index === currentBrandsSlide);
     });
@@ -178,9 +192,21 @@ window.addEventListener('resize', () => {
             brandsPerView = newBrandsPerView;
             currentBrandsSlide = 0;
             initializeBrandsCarousel();
+        } else {
+            updateBrandsCarousel();
         }
     }, 250);
 });
+
+// Prevenir zoom en doble tap en iOS
+let lastTouchEnd = 0;
+document.addEventListener('touchend', (e) => {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+        e.preventDefault();
+    }
+    lastTouchEnd = now;
+}, { passive: false });
 
 // Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {

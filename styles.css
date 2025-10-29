@@ -167,14 +167,14 @@ body {
 
 .hero {
     padding: 110px 0 105px 0;
-    background: url('img/banner2.jpg') center/cover;
+    background: url('img/banner.jpg') center/cover;
     display: flex;
     align-items: center;
 }
 
 .hero-container {
     margin: 0 auto;
-    padding: 0 2.50rem;
+    padding: 0 4rem;
     text-align: left;
     max-width: 700px;
     margin-left: 0.75rem;
@@ -183,9 +183,9 @@ body {
 .hero-logo {
     width: 350px;
     height: auto;
-    margin-top: 5rem;
+    margin-top: 3rem;
     margin-bottom: 0.5rem;
-    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.3)) drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
     animation: heroLogoFloat 3s ease-in-out infinite;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
@@ -235,6 +235,7 @@ body {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    padding-right: 60px;
 }
 
 .cta-button {
@@ -296,11 +297,45 @@ body {
     border: 2px solid #f0f0f0;
     border-radius: 16px;
     padding: 2.5rem 2rem;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     position: relative;
     overflow: hidden;
+    opacity: 0;
 }
+
+/* Animaciones laterales - DOS DE CADA LADO */
+.sector-card:nth-child(1),
+.sector-card:nth-child(2) {
+    transform: translateX(-150px);
+}
+
+.sector-card:nth-child(3),
+.sector-card:nth-child(4) {
+    transform: translateX(150px);
+}
+
+.sector-card.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.sector-card:nth-child(1).visible {
+    transition-delay: 0.1s;
+}
+
+.sector-card:nth-child(2).visible {
+    transition-delay: 0.25s;
+}
+
+.sector-card:nth-child(3).visible {
+    transition-delay: 0.4s;
+}
+
+.sector-card:nth-child(4).visible {
+    transition-delay: 0.55s;
+}
+
 
 .sector-card::before {
     content: '';
@@ -995,10 +1030,127 @@ body {
     font-size: 0.9rem;
 }
 
+
+
 /* Responsive Design */
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+    .sectores-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .hero-logo {
+        width: 280px;
+    }
+    
+    .payment-grid {
+        gap: 2rem;
+    }
+    
+    .excellence-points {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Tablets pequeñas y móviles grandes (768px - 968px) */
+@media (max-width: 968px) {
+    .nav-menu {
+        gap: 0.15rem;
+        padding: 0.4rem;
+    }
+    
+    .nav-menu a {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .logo-image {
+        height: 40px;
+        margin-left: -2rem;
+    }
+    
+    .hero {
+        padding: 100px 0 90px 0;
+    }
+    
+    .hero-container {
+        padding: 0 2rem;
+        max-width: 600px;
+    }
+    
+    .hero-logo {
+        width: 250px;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+        padding-right: 0;
+    }
+    
+    .maquinas-gallery {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .maquina-image-large {
+        height: 450px;
+    }
+}
+
+/* Móviles (max-width: 768px) */
 @media (max-width: 768px) {
     .nav-menu {
         display: none;
+    }
+    
+    .logo-image {
+        margin-left: 0;
+    }
+    
+    .nav-container {
+        padding: 0.8rem 1.5rem;
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 100px 0 90px 0;
+        background-position: center;
+        position: relative;
+    }
+    
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #e55a2e;
+    }
+    
+    .hero-container {
+        padding: 2rem 1.5rem;
+        text-align: center;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        max-width: 90%;
+    }
+    
+    .hero-logo {
+        width: 240px;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
     }
 
     .hero h1 {
@@ -1006,60 +1158,309 @@ body {
     }
 
     .hero p {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
+        max-width: 100%;
+        padding: 0;
+        color: #555;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+    }
+    
+    .cta-button {
+        padding: 0.85rem 2rem;
+        font-size: 0.95rem;
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
     }
 
     .section-title {
         font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+        padding: 0 1rem;
     }
 
     .section {
-        padding: 60px 0;
+        padding: 20px 0;
     }
 
-    .sectores-grid,
-    .maquinas-gallery,
-    .tech-features,
+    .sectores-grid {
+        grid-template-columns: 2fr;
+        gap: 1.5rem;
+    }
+    
+    /* Ajustar animaciones laterales en móvil */
+    .sector-card:nth-child(1),
+    .sector-card:nth-child(2),
+    .sector-card:nth-child(3),
+    .sector-card:nth-child(4) {
+        transform: translateY(30px);
+    }
+    
+    .sector-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .sector-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .sector-icon-img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .maquinas-gallery {
+        gap: 2rem;
+    }
+    
+    .maquina-image-large {
+        height: 700px;
+    }
+    
+    .maquina-content {
+        padding: 2rem 1.5rem;
+    }
+    
+    .maquina-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .payment-grid {
+        gap: 2rem;
+    }
+    
+    .payment-item {
+        padding: 2rem 1.5rem;
+    }
+    
+    .payment-video-container {
+        max-width: 100%;
+    }
+    
+    .tech-features {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
     .excellence-points {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
-
-    .nav-container {
-        padding: 1rem;
+    
+    .excellence-point {
+        padding: 1.75rem;
     }
 
     .section-container {
-        padding: 0 1rem;
+        padding: 0 1.5rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
     }
 }
 
+/* Móviles pequeños (max-width: 480px) */
 @media (max-width: 480px) {
+    .header {
+        padding: 0.5rem 0;
+    }
+    
+    .nav-container {
+        padding: 0.5rem 1rem;
+    }
+    
+    .logo-image {
+        height: 35px;
+    }
+    
+    .hero {
+        padding: 80px 0 60px 0;
+    }
+
+    
+    .hero-logo {
+        width: 180px;
+        margin-top: 1.5rem;
+    }
+
     .hero h1 {
         font-size: 2rem;
     }
+    
+    .hero p {
+        font-size: 0.95rem;
+    }
+    
+    .cta-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.85rem;
+    }
+    
+    
+    .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+    
+    .section-container {
+        padding: 0 1rem;
+    }
+    
+    .sectores-grid {
+        gap: 1.25rem;
+    }
 
-    .sector-card,
-    .tech-feature,
+    .sector-card {
+        padding: 1.75rem 1.25rem;
+    }
+    
+    .sector-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .sector-icon {
+        width: 65px;
+        height: 65px;
+        border-radius: 16px;
+    }
+    
+    .sector-icon-img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .sector-card li {
+        font-size: 0.9rem;
+    }
+    
+    .maquinas-gallery {
+        gap: 1.5rem;
+    }
+    
+    .maquina-image-large {
+        height: 500px;
+    }
+    
+    .maquina-content {
+        padding: 1.5rem;
+    }
+    
+    .maquina-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .maquina-content p {
+        font-size: 0.9rem;
+    }
+    
+    .payment-grid {
+        gap: 1.5rem;
+    }
+    
+    .payment-item {
+        padding: 1.75rem 1.25rem;
+    }
+    
+    .payment-item h4 {
+        font-size: 1.2rem;
+    }
+    
+    .payment-item p {
+        font-size: 0.9rem;
+    }
+    
+    .payment-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+    }
+    
+    .tech-feature {
+        padding: 1.75rem 1.25rem;
+    }
+    
+    .tech-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem;
+    }
+    
+    .tech-feature h3 {
+        font-size: 1rem;
+    }
+    
+    .tech-feature p {
+        font-size: 0.85rem;
+    }
+
+    .brands-carousel-container {
+        justify-items: center;
+    }
+    
+    .excellence-points {
+        gap: 1.25rem;
+    }
+
     .excellence-point {
         padding: 1.5rem;
     }
+    
+    .excellence-point h3 {
+        font-size: 1.1rem;
+    }
+    
+    .excellence-point p {
+        font-size: 0.9rem;
+    }
+    
+    .footer {
+        padding: 40px 0 20px;
+    }
+    
+    .footer-content {
+        padding: 0 1rem;
+    }
+    
+    .footer-section h3 {
+        font-size: 1rem;
+    }
+    
+    .footer-section p {
+        font-size: 0.85rem;
+    }
 }
 
-/* Smooth animations */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease;
+/* Móviles muy pequeños (max-width: 360px) */
+@media (max-width: 320px) {
+    .hero-logo {
+        width: 160px;
+    }
+    
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .maquina-image-large {
+        height: 500px;
+    }
+
+
 }
 
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Focus states for accessibility */
-.cta-button:focus,
-.nav-menu a:focus {
-    outline: 2px solid #ff6b35;
-    outline-offset: 2px;
-}

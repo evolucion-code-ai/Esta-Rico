@@ -5,15 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Está Rico! - Expendedoras Automáticas</title>
     <link rel="icon" type="image/png" href="./img/logo.png">
-    <link rel="stylesheet" href="./styles.css?v=3">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
-        <a href="#inicio" class="logo">
-            <img src="./img/logo.png" alt="Está Rico!" class="logo-image">
-        </a>
+            <a href="#inicio" class="logo">
+                <img src="./img/logo.png" alt="Está Rico!" class="logo-image">
+            </a>
+            
+            <!-- Menú hamburguesa -->
+            <button class="mobile-menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
             <ul class="nav-menu">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#sectores">Sectores</a></li>
@@ -37,10 +45,9 @@
     <section class="section" id="sectores">
         <div class="section-container">
             <h2 class="section-title">Nuestros Sectores</h2>
-            <p class="section-subtitle">Brindamos soluciones personalizadas para diferentes industrias y necesidades empresariales.</p>
             
             <div class="sectores-grid">
-                <div class="sector-card fade-in">
+                <div class="sector-card">
                     <div class="sector-icon">
                         <img src="./img/iconos/icon-aero.png" alt="Sectores Públicos" class="sector-icon-img">
                     </div>
@@ -52,7 +59,7 @@
                     </ul>
                 </div>
                 
-                <div class="sector-card fade-in">
+                <div class="sector-card">
                     <div class="sector-icon">
                         <img src="./img/iconos/icon-hotel.png" alt="Sector Privado" class="sector-icon-img">
                     </div>
@@ -64,7 +71,7 @@
                     </ul>
                 </div>
                 
-                <div class="sector-card fade-in">
+                <div class="sector-card">
                     <div class="sector-icon">
                         <img src="./img/iconos/icon-escuela.png" alt="Educación" class="sector-icon-img">
                     </div>
@@ -76,7 +83,7 @@
                     </ul>
                 </div>
 
-                <div class="sector-card fade-in">
+                <div class="sector-card">
                     <div class="sector-icon">
                         <img src="./img/iconos/icon-estacion.png" alt="Servicios Especiales" class="sector-icon-img">
                     </div>
@@ -230,7 +237,7 @@
             <p class="section-subtitle">Trabajamos con las mejores marcas del mercado para garantizar calidad superior.</p>
             
             <div class="brands-carousel-container">
-                <button class="brands-carousel-btn prev" onclick="changeBrandsSlide(-1)">❮</button>
+                <button class="brands-carousel-btn prev" onclick="changeBrandsSlide(-1)" aria-label="Anterior">❮</button>
                 <div class="brands-carousel-wrapper">
                     <div class="brands-carousel-track">
                         <div class="brand-item">
@@ -259,7 +266,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="brands-carousel-btn next" onclick="changeBrandsSlide(1)">❯</button>
+                <button class="brands-carousel-btn next" onclick="changeBrandsSlide(1)" aria-label="Siguiente">❯</button>
                 <div class="brands-carousel-dots"></div>
             </div>
         </div>
@@ -330,7 +337,6 @@
             <p>&copy; 2024 Está Rico SRL. Todos los derechos reservados.</p>
         </div>
     </footer>
-
     <script src="./script.js"></script>
 </body>
 </html>
