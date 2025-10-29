@@ -928,41 +928,6 @@ body {
     background: #ff8c5a;
 }
 
-/* Responsive para el carrusel de marcas */
-@media (max-width: 968px) {
-    .brand-item {
-        min-width: calc(50% - 1rem);
-    }
-    
-    .brands-carousel-btn.prev {
-        left: -15px;
-    }
-    
-    .brands-carousel-btn.next {
-        right: -15px;
-    }
-}
-
-@media (max-width: 640px) {
-    .brand-item {
-        min-width: 100%;
-    }
-    
-    .brands-carousel-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.4rem;
-        padding: 0.75rem;
-    }
-    
-    .brands-carousel-btn.prev {
-        left: 5px;
-    }
-    
-    .brands-carousel-btn.next {
-        right: 5px;
-    }
-}
 
 /* Excellence Points */
 .excellence-points {
@@ -1031,18 +996,24 @@ body {
 }
 
 
-
 /* Responsive Design */
 
 /* Tablets (768px - 1024px) */
 @media (max-width: 1024px) {
     .sectores-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+        gap: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
     }
     
     .section-title {
         font-size: 2.2rem;
+    }
+    
+    .hero-container {
+        max-width: 650px;
+        margin: 0 auto;
     }
     
     .hero-logo {
@@ -1051,14 +1022,19 @@ body {
     
     .payment-grid {
         gap: 2rem;
+        max-width: 900px;
+        margin: 0 auto;
     }
     
     .excellence-points {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
+        max-width: 900px;
+        margin: 0 auto;
     }
-}
 
+    
+}
 /* Tablets pequeñas y móviles grandes (768px - 968px) */
 @media (max-width: 968px) {
     .nav-menu {
@@ -1145,6 +1121,7 @@ body {
         border-radius: 20px;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         max-width: 90%;
+        margin-top: 35px;
     }
     
     .hero-logo {
@@ -1219,7 +1196,7 @@ body {
     }
     
     .maquina-image-large {
-        height: 700px;
+        height: 750px;
     }
     
     .maquina-content {
@@ -1307,7 +1284,7 @@ body {
     
     .section-title {
         font-size: 1.75rem;
-        margin-bottom: 1.5rem;
+        margin: 1.5rem;
     }
     
     .section-subtitle {
