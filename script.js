@@ -101,10 +101,13 @@ function initializeAutoCarousels() {
 let currentBrandsSlide = 0;
 let brandsPerView = getBrandsPerView();
 let brandsAutoplayInterval;
+let isTransitioning = false;
 
 function getBrandsPerView() {
-    if (window.innerWidth <= 480) return 1;
-    if (window.innerWidth <= 768) return 2;
+    const width = window.innerWidth;
+    if (width <= 480) return 1;
+    if (width <= 768) return 2;
+    if (width <= 1024) return 3;
     return 3;
 }
 
@@ -115,6 +118,7 @@ function initializeBrandsCarousel() {
     
     if (!track || !items.length) return;
     
+    brandsPerView = getBrandsPerView();
     const totalSlides = Math.ceil(items.length / brandsPerView);
     
     // Crear dots
@@ -127,6 +131,17 @@ function initializeBrandsCarousel() {
         dotsContainer.appendChild(dot);
     }
     
+    // Ajustar el ancho de los items según la vista
+    items.forEach(item => {
+        if (brandsPerView === 1) {
+            item.style.minWidth = '100%';
+        } else if (brandsPerView === 2) {
+            item.style.minWidth = 'calc(50% - 1rem)';
+        } else {
+            item.style.minWidth = 'calc(33.333% - 1.35rem)';
+        }
+    });
+    
     updateBrandsCarousel();
     startBrandsAutoplay();
 }
@@ -135,12 +150,24 @@ function updateBrandsCarousel() {
     const track = document.querySelector('.brands-carousel-track');
     const items = document.querySelectorAll('.brand-item');
     const dots = document.querySelectorAll('.brands-dot');
+    const container = document.querySelector('.brands-carousel-wrapper');
     
-    if (!track || !items.length) return;
+    if (!track || !items.length || !container) return;
     
-    const itemWidth = items[0].offsetWidth;
-    const gap = window.innerWidth <= 480 ? 16 : 32;
-    const offset = -(currentBrandsSlide * brandsPerView * (itemWidth + gap));
+    const containerWidth = container.offsetWidth;
+    const gap = window.innerWidth <= 480 ? 16 : (window.innerWidth <= 768 ? 24 : 32);
+    
+    // Calcular offset basado en el ancho del contenedor
+    let offset;
+    if (brandsPerView === 1) {
+        offset = -(currentBrandsSlide * (containerWidth + gap));
+    } else if (brandsPerView === 2) {
+        const itemWidth = (containerWidth - gap) / 2;
+        offset = -(currentBrandsSlide * brandsPerView * (itemWidth + gap));
+    } else {
+        const itemWidth = (containerWidth - (gap * 2)) / 3;
+        offset = -(currentBrandsSlide * brandsPerView * (itemWidth + gap));
+    }
     
     track.style.transform = `translateX(${offset}px)`;
     
@@ -150,9 +177,12 @@ function updateBrandsCarousel() {
 }
 
 function changeBrandsSlide(direction) {
+    if (isTransitioning) return;
+    
     const items = document.querySelectorAll('.brand-item');
     const totalSlides = Math.ceil(items.length / brandsPerView);
     
+    isTransitioning = true;
     currentBrandsSlide += direction;
     
     if (currentBrandsSlide < 0) {
@@ -163,15 +193,27 @@ function changeBrandsSlide(direction) {
     
     updateBrandsCarousel();
     resetBrandsAutoplay();
+    
+    setTimeout(() => {
+        isTransitioning = false;
+    }, 500);
 }
 
 function goToBrandsSlide(index) {
+    if (isTransitioning) return;
+    
+    isTransitioning = true;
     currentBrandsSlide = index;
     updateBrandsCarousel();
     resetBrandsAutoplay();
+    
+    setTimeout(() => {
+        isTransitioning = false;
+    }, 500);
 }
 
 function startBrandsAutoplay() {
+    clearInterval(brandsAutoplayInterval);
     brandsAutoplayInterval = setInterval(() => {
         changeBrandsSlide(1);
     }, 4000);
