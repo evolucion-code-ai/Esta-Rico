@@ -258,6 +258,8 @@ body {
 /* Sections */
 .section {
     padding: 80px 0;
+    background-color: #FFF8F3;
+
 }
 
 .section-container {
@@ -441,9 +443,12 @@ body {
 
 .maquinas-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
     margin-top: 3rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .maquina-card {
@@ -1123,6 +1128,7 @@ body {
 /* ESTILOS MÓVILES (max-width: 768px)*/
 
 @media (max-width: 768px) {
+
     
     /* Menú hamburguesa */
     .mobile-menu-toggle {
@@ -1299,8 +1305,8 @@ body {
     }
     /* ============ SECTORES ============ */
     .sectores-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
     
     /* Ajustar animaciones laterales en móvil */
@@ -1337,7 +1343,7 @@ body {
     }
     
     .maquina-image-large {
-        height: 750px;
+        height: 850px;
     }
     
     .maquina-content {
@@ -1430,6 +1436,8 @@ body {
 
 /* Móviles pequeños (max-width: 480px) */
 @media (max-width: 480px) {
+
+
     .header {
         padding: 0.5rem 0;
     }
@@ -1485,17 +1493,17 @@ body {
     }
 
     .sector-card {
-        padding: 1.75rem 1.25rem;
+        padding: 0.6rem 1.5rem;
     }
     
     .sector-card h3 {
-        font-size: 1.2rem;
+        font-size: 0.9rem;
     }
     
     .sector-icon {
-        width: 65px;
-        height: 65px;
-        border-radius: 16px;
+        width: 45px;
+        height: 45px;
+        border-radius: 10px;
     }
     
     .sector-icon-img {
@@ -1504,15 +1512,21 @@ body {
     }
     
     .sector-card li {
-        font-size: 0.9rem;
+        font-size: 0.6rem;
     }
+
+    
+    .sector-card li::before{
+        font-size: 11.2px;
+    }
+
     
     .maquinas-gallery {
         gap: 1.5rem;
     }
     
     .maquina-image-large {
-        height: 650px;
+        height: 550px;
     }
     
     .maquina-content {
@@ -1718,3 +1732,5 @@ body {
 }
 
  */
+
+ 
