@@ -1,24 +1,3 @@
-// Smooth scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-            // Cerrar menú móvil si está abierto
-            if (window.innerWidth <= 768) {
-                const navMenu = document.querySelector('.nav-menu');
-                const menuToggle = document.querySelector('.mobile-menu-toggle');
-                navMenu.classList.remove('active');
-                menuToggle.classList.remove('active');
-            }
-        }
-    });
-});
-
 // Menú móvil toggle
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
@@ -37,6 +16,28 @@ if (mobileMenuToggle) {
         }
     });
 }
+
+
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            // Cerrar menú móvil si está abierto
+            if (window.innerWidth <= 768) {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
+        }
+    });
+});
+
+
 
 // Header scroll effect
 window.addEventListener('scroll', () => {
