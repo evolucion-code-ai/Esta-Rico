@@ -297,7 +297,7 @@ body {
     border: 2px solid #f0f0f0;
     border-radius: 16px;
     padding: 2.5rem 2rem;
-    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     position: relative;
     overflow: hidden;
@@ -1280,7 +1280,7 @@ body {
     }
     /* ============ SECCIONES GENERALES ============ */
     .section {
-        padding: 20px 0;
+        padding: 50px 0;
     }
     
     .section-container {
@@ -1289,7 +1289,7 @@ body {
     
     .section-title {
         font-size: 2rem;
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
     }
     
     .section-subtitle {
@@ -1300,7 +1300,7 @@ body {
     /* ============ SECTORES ============ */
     .sectores-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 2rem;
     }
     
     /* Ajustar animaciones laterales en móvil */
@@ -1312,17 +1312,23 @@ body {
     }
     
     .sector-card {
-        padding: 2rem 1.5rem;
+        padding: 2rem 1.5rem;   
     }
+
+    .sector-card:active { 
+        transform: scale(0.98); 
+        box-shadow: 0 5px 15px rgba(255, 107, 53, 0.2);
     
+    }
     .sector-icon {
-        width: 70px;
-        height: 70px;
+        width: 75px;
+        height: 75px;
+        margin-bottom: 1.5rem;
     }
     
     .sector-icon-img {
-        width: 45px;
-        height: 45px;
+        width: 48px;
+        height: 48px;
     }
     /* ============ MÁQUINAS ============ */
     .maquinas-gallery {
@@ -1384,12 +1390,20 @@ body {
     }
     
     .payment-item {
-        padding: 2rem 1.5rem;
+        padding: 2.5rem 1.5rem;
+        margin-bottom: 1rem;
     }
     
     .payment-video-container {
         max-width: 100%;
-    }
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+        border-radius: 12px;
+    };
+
+    .payment-item h4 { 
+        font-size: 1.4rem; 
+        margin-bottom: 1rem; }
+
     /* ============ CARACTERÍSTICAS TÉCNICAS ============ */
     .tech-features {
         grid-template-columns: 1fr;
@@ -1498,7 +1512,7 @@ body {
     }
     
     .maquina-image-large {
-        height: 500px;
+        height: 650px;
     }
     
     .maquina-content {
