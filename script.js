@@ -1,3 +1,36 @@
+// CARRUSEL HERO - Solo automático
+let currentHeroSlide = 0;
+let heroAutoplayInterval;
+const heroSlides = document.querySelectorAll('.hero-slide');
+const heroDots = document.querySelectorAll('.hero-dot');
+
+function showHeroSlide(index) {
+    heroSlides.forEach(slide => slide.classList.remove('active'));
+    heroDots.forEach(dot => dot.classList.remove('active'));
+    
+    heroSlides[index].classList.add('active');
+    heroDots[index].classList.add('active');
+}
+
+function nextHeroSlide() {
+    currentHeroSlide++;
+    
+    if (currentHeroSlide >= heroSlides.length) {
+        currentHeroSlide = 0;
+    }
+    
+    showHeroSlide(currentHeroSlide);
+}
+
+function startHeroAutoplay() {
+    heroAutoplayInterval = setInterval(() => {
+        nextHeroSlide();
+    }, 5000); // Cambia cada 5 segundos
+}
+
+// Iniciar autoplay del hero
+startHeroAutoplay();
+
 // Menú móvil toggle
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
@@ -137,7 +170,7 @@ function initializeBrandsCarousel() {
         if (brandsPerView === 1) {
             item.style.minWidth = '100%';
         } else if (brandsPerView === 2) {
-            item.style.minWidth = 'calc(50% - 1rem)';
+            item.style.minWidth = 'calc(50% - 0.75rem)';
         } else {
             item.style.minWidth = 'calc(33.333% - 1.35rem)';
         }
@@ -255,4 +288,37 @@ document.addEventListener('touchend', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     initializeAutoCarousels();
     initializeBrandsCarousel();
+});
+
+// AUTOPLAY DE VIDEO EN SECCIÓN QUIÉNES SOMOS
+function initVideoAutoplay() {
+    const video = document.querySelector('.about-video');
+    const quienesSection = document.querySelector('.quienes-somos');
+    
+    if (!video || !quienesSection) return;
+    
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Usuario entró a la sección - reproducir video
+                video.play().catch(error => {
+                    console.log('Autoplay bloqueado por el navegador:', error);
+                });
+            } else {
+                // Usuario salió de la sección - pausar video
+                video.pause();
+            }
+        });
+    }, {
+        threshold: 0.5 // Se activa cuando el 50% de la sección está visible
+    });
+    
+    videoObserver.observe(quienesSection);
+}
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    initializeAutoCarousels();
+    initializeBrandsCarousel();
+    initVideoAutoplay(); // Nueva función
 });

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Está Rico! - Expendedoras Automáticas</title>
-    <link rel="icon" type="image/png" href="./img/logo.png">
+    <link rel="icon" type="image/png" href="./img/inicio/logo.jpg">
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
 <header class="header">
     <nav class="nav-container">
         <a href="#inicio" class="logo">
-            <img src="./img/logo.png" alt="Está Rico!" class="logo-image">
+            <img src="./img/inicio/logo.png" alt="Está Rico!" class="logo-image">
         </a>
         
         <!-- Menú hamburguesa -->
@@ -22,24 +22,132 @@
             <span></span>
         </button>
         
-        <ul class="nav-menu">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#sectores">Sectores</a></li>
-            <li><a href="#maquinas">Máquinas</a></li>
-            <li><a href="#tecnologia">Tecnología</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
+    <ul class="nav-menu">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#quienes-somos">Quiénes Somos</a></li>
+        <li><a href="#sectores">Sectores</a></li>
+        <li><a href="#maquinas">Máquinas</a></li>
+        <li><a href="#tecnologia">Tecnología</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+    </ul>
     </nav>
 </header>
 
-    <!-- Hero Section -->
+<!-- Hero Section -->
     <section class="hero" id="inicio">
-        <div class="hero-container">
-            <img src="./img/logo.png" alt="Está Rico!" class="hero-logo">
-            <p>Expendedoras automáticas de última generación para empresas modernas. Calidad, tecnología y servicio excepcional.</p>
-            <a href="#contacto" class="cta-button">Solicitar información</a>
+        <div class="hero-carousel">
+            <!-- Slide 1 -->
+            <div class="hero-slide active">
+                <div class="hero-slide-content">
+                    <h1 class="hero-title">Cada previa es un momento único</h1>
+                    <p class="hero-subtitle">Servicio de expendedoras automáticas</p>
+                    <a href="#contacto" class="cta-button">Solicitar información</a>
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="hero-slide">
+                <div class="hero-slide-content">
+                    <h1 class="hero-title">Empresas, Industrias, Instituciones</h1>
+                    <p class="hero-subtitle">Bebidas frías • Bebidas calientes • Snacks<br>Soluciones para espacios comunes</p>
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="hero-slide">
+                <div class="hero-slide-content">
+                    <h1 class="hero-title">Múltiples medios de pago</h1>
+                    <p class="hero-subtitle">Adaptamos el sistema de pago a las necesidades de cada cliente</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hero Navigation -->
+        <div class="hero-nav">
+            <span class="hero-dot active"></span>
+            <span class="hero-dot"></span>
+            <span class="hero-dot"></span>
         </div>
     </section>
+
+    <!-- Quiénes Somos -->
+<section class="section quienes-somos" id="quienes-somos">
+    <div class="section-container">
+        <h2 class="section-title">¿Quiénes Somos?</h2>
+        
+        <div class="quienes-content">
+            <div class="quienes-text fade-in">
+                <div class="text-block">
+                    <p class="intro-text">
+                        Somos una <strong>empresa familiar</strong> ubicada en la ciudad de Córdoba con más de <strong>quince años de trayectoria</strong>, especializada en provisión de café, bebidas frías y alimentos a través de expendedoras automáticas.
+                    </p>
+                </div>
+                
+                <div class="text-block">
+                    <p>
+                        Brindamos un <strong>servicio integral</strong> a empresas, industrias e instituciones, adaptándonos a las necesidades de cada cliente con tecnología de vanguardia y atención personalizada.
+                    </p>
+                </div>
+                
+                <div class="text-block">
+                    <p>
+                        Nos caracteriza el compromiso con la <strong>excelencia</strong>, la <strong>honestidad</strong> y la constante búsqueda de <strong>innovación</strong> para satisfacer las necesidades de nuestros clientes con eficiencia y responsabilidad.
+                    </p>
+                </div>
+                
+                <div class="quienes-buttons">
+                    <a href="#maquinas" class="quienes-btn quienes-btn-primary">
+                        <span class="btn-text">Nuestros Servicios</span>
+                    </a>
+                    <a href="#contacto" class="quienes-btn quienes-btn-secondary">
+                        <span class="btn-text">Contáctanos</span>
+                    </a>
+                </div>    
+            </div>
+            
+            <div class="quienes-video fade-in">
+                <div class="video-wrapper">
+                    <video class="about-video" controls muted loop>
+                        <source src="./videos/SOMOS ESTA RICO (1).mp4" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                    <div class="video-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Excelencia -->
+        <section class="section-e section-gray">
+            <div class="section-container">
+                <div class="excellence-points">
+                    <div class="excellence-point fade-in">
+                        <div class="excellence-icon">
+                            <img src="/img/insignia.png" alt="Profesionalismo">
+                        </div>
+                        <h3>Profesionalismo</h3>
+                        <p>La contratación de ESTÁ RICO incluye la logística necesaria para la instalación de máquinas expendedoras, la entrega y reposición de insumo, servicio técnico, de mantenimiento preventivo y sanitización de los equipos.</p>
+                    </div>
+                    
+                    <div class="excellence-point fade-in">
+                        <div class="excellence-icon">
+                            <img src="/img/alcance-social.png" alt="Alcance">
+                        </div>
+                        <h3>Alcance</h3>
+                        <p>Contamos con la capacidad para adaptarnos a diversas escalas de operación garantizando un servicio eficiente y personalizado tanto a grandes corporaciones como a instituciones y pymes.</p>
+                    </div>
+                    
+                    <div class="excellence-point fade-in">
+                        <div class="excellence-icon">
+                            <img src="/img/puesta-en-marcha.png" alt="Flexibilidad">
+                        </div>
+                        <h3>Flexibilidad</h3>
+                        <p>Nos adecuamos a las necesidades particulares de cada empresa, ofrecemos un servicio personalizado con una amplia variedad de productos, sistemas de pago adaptados a cada cliente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     <!-- Sectores -->
     <section class="section" id="sectores">
@@ -101,7 +209,7 @@
     <!-- Máquinas -->
     <section class="section section-gray" id="maquinas">
         <div class="section-container">
-            <h2 class="section-title">Nuestras Máquinas</h2>
+            <h2 class="section-title">Nuestros Servicios</h2>
             <p class="section-subtitle">Tecnología avanzada con la mejor selección de productos para satisfacer todos los gustos.</p>
             
             <div class="maquinas-gallery">
@@ -272,35 +380,7 @@
         </div>
     </section>
 
-    <!-- Excelencia -->
-    <section class="section section-gray">
-        <div class="section-container">
-            <h2 class="section-title">Nuestra Excelencia</h2>
-            <p class="section-subtitle">Nos distinguimos por nuestro compromiso con la calidad y el servicio excepcional.</p>
-            
-            <div class="excellence-points">
-                <div class="excellence-point fade-in">
-                    <h3>Pronta Atención</h3>
-                    <p>Respuesta rápida y atención personalizada para nuestros clientes</p>
-                </div>
-                
-                <div class="excellence-point fade-in">
-                    <h3>Servicio Técnico Especializado</h3>
-                    <p>Mantenimiento profesional y soporte técnico especializado</p>
-                </div>
-                
-                <div class="excellence-point fade-in">
-                    <h3>Confianza Empresarial</h3>
-                    <p>Empresas y comunidades de Argentina que confían en nosotros</p>
-                </div>
-                
-                <div class="excellence-point fade-in">
-                    <h3>Compromiso con la Calidad</h3>
-                    <p>Productos premium y soluciones deportivas de vanguardia</p>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Footer -->
     <footer class="footer" id="contacto">
