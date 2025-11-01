@@ -25,7 +25,7 @@ function nextHeroSlide() {
 function startHeroAutoplay() {
     heroAutoplayInterval = setInterval(() => {
         nextHeroSlide();
-    }, 5000); // Cambia cada 5 segundos
+    }, 5000);
 }
 
 // Iniciar autoplay del hero
@@ -50,7 +50,6 @@ if (mobileMenuToggle) {
     });
 }
 
-
 // Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -69,8 +68,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
-
 
 // Header scroll effect
 window.addEventListener('scroll', () => {
@@ -103,9 +100,11 @@ document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .sector-ca
     observer.observe(el);
 });
 
-// CARRUSEL AUTOMÁTICO DE MÁQUINAS
-function autoChangeSlide(carousel) {
-    const images = carousel.querySelectorAll('.carousel-img');
+// CARRUSEL AUTOMÁTICO DE MÁQUINAS - MEJORADO
+const carouselIntervals = [];
+
+function autoChangeSlide(card, carouselId) {
+    const images = card.querySelectorAll('.carousel-img');
     
     let currentIndex = 0;
     images.forEach((img, index) => {
@@ -114,20 +113,33 @@ function autoChangeSlide(carousel) {
         }
     });
     
+    // Remover clase active de la imagen actual
     images[currentIndex].classList.remove('active');
+    
+    // Calcular el siguiente índice
     let newIndex = (currentIndex + 1) % images.length;
+    
+    // Agregar clase active a la nueva imagen
     images[newIndex].classList.add('active');
 }
 
 function initializeAutoCarousels() {
-    const carousels = document.querySelectorAll('.carousel-container');
+    const cards = document.querySelectorAll('.maquina-card');
+    
+    // Intervalos diferentes para cada carrusel (en milisegundos)
     const intervals = [3500, 4200, 3800];
     
-    carousels.forEach((carousel, index) => {
+    cards.forEach((card, index) => {
+        const carouselId = card.getAttribute('data-carousel-id');
         const interval = intervals[index] || 3500;
-        setInterval(() => {
-            autoChangeSlide(carousel);
+        
+        // Crear intervalo para cada carrusel
+        const intervalId = setInterval(() => {
+            autoChangeSlide(card, carouselId);
         }, interval);
+        
+        // Guardar el ID del intervalo
+        carouselIntervals.push(intervalId);
     });
 }
 
@@ -284,12 +296,6 @@ document.addEventListener('touchend', (e) => {
     lastTouchEnd = now;
 }, { passive: false });
 
-// Inicializar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
-    initializeAutoCarousels();
-    initializeBrandsCarousel();
-});
-
 // AUTOPLAY DE VIDEO EN SECCIÓN QUIÉNES SOMOS
 function initVideoAutoplay() {
     const video = document.querySelector('.about-video');
@@ -310,7 +316,7 @@ function initVideoAutoplay() {
             }
         });
     }, {
-        threshold: 0.5 // Se activa cuando el 50% de la sección está visible
+        threshold: 0.5
     });
     
     videoObserver.observe(quienesSection);
@@ -320,5 +326,5 @@ function initVideoAutoplay() {
 document.addEventListener('DOMContentLoaded', () => {
     initializeAutoCarousels();
     initializeBrandsCarousel();
-    initVideoAutoplay(); // Nueva función
+    initVideoAutoplay();
 });
