@@ -296,35 +296,29 @@ document.addEventListener('touchend', (e) => {
     lastTouchEnd = now;
 }, { passive: false });
 
-// AUTOPLAY DE VIDEO EN SECCIÓN QUIÉNES SOMOS
+
+//VIDEO QUIENES SOMOS
+
 function initVideoAutoplay() {
     const video = document.querySelector('.about-video');
     const quienesSection = document.querySelector('.quienes-somos');
     
     if (!video || !quienesSection) return;
     
-    const videoObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Usuario entró a la sección - reproducir video
-                video.play().catch(error => {
-                    console.log('Autoplay bloqueado por el navegador:', error);
-                });
-            } else {
-                // Usuario salió de la sección - pausar video
-                video.pause();
-            }
-        });
-    }, {
-        threshold: 0.5
-    });
-    
-    videoObserver.observe(quienesSection);
+    if (window.innerWidth > 768) {
+        // Asegurar que el video está muted (requisito de Chrome)
+        video.muted = true;
+        
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        videoObserver.observe(quienesSection);
+    }
 }
-
-// Inicializar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
-    initializeAutoCarousels();
-    initializeBrandsCarousel();
-    initVideoAutoplay();
-});

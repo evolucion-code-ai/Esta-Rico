@@ -57,7 +57,7 @@ body {
     opacity: 1;
 }
 .nav-container {
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
     padding: 0.45rem 2rem;
     display: flex;
@@ -620,8 +620,7 @@ body {
 }
 
 /* ============================================
-   SECCIÃ"N NUESTROS SECTORES - COMPLETA
-   Cards con altura uniforme en todos los tamaños
+  NUESTROS SECTORES - COMPLETA
    ============================================ */
 
 /* ESTILOS BASE */
@@ -642,7 +641,7 @@ body {
 .sectores-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    gap: 4rem;
     position: relative;
     z-index: 2;
     max-width: 1400px;
@@ -2543,9 +2542,9 @@ body {
 
 /* Slide 2 - Derecha */
 .hero-slide:nth-child(2) .hero-slide-content {
-    text-align: left;
-    margin-right: 3rem;
-    margin-left: auto;
+    text-align: center;
+    margin-right: 0rem;
+
 }
 
 /* Slide 3 - Izquierda */
@@ -2554,10 +2553,6 @@ body {
     margin-left: 0.5rem;
     margin-right: auto;
 }
-
-
-
-
 
 
     /*   ///// SECTORES//////   */
