@@ -96,7 +96,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observar todos los elementos con animación
-document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .sector-card').forEach(el => {
+document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .sector-card, .tech-card').forEach(el => {
     observer.observe(el);
 });
 
