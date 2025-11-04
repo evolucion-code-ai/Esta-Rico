@@ -308,7 +308,7 @@ body {
     margin-bottom: 1.2rem;
     letter-spacing: -1px;
     padding: 0.5rem 0;
-}
+}   
 
 .hero-slide:nth-child(2) .hero-subtitle {
     font-size: 1.3rem;
@@ -2477,10 +2477,7 @@ body {
         padding: 1rem;
     }
     
-    .hero-title {
-        font-size: 1.8rem;
-        margin-bottom: 0.75rem;
-    }
+ 
     
     .hero-subtitle {
         font-size: 0.95rem;
@@ -2511,6 +2508,57 @@ body {
     .hero-dot.active {
         width: 28px;
     }
+
+    /*IAMGENES DEL BANNER */
+
+    .hero-slide:nth-child(1) .hero-title, .hero-slide:nth-child(2) .hero-title, .hero-slide:nth-child(3) .hero-title{
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-slide:nth-child(1) .hero-subtitle, .hero-slide:nth-child(2) .hero-subtitle, .hero-slide:nth-child(3) .hero-subtitle  {
+        font-size: 1rem;
+    }
+
+    .hero-slide:nth-child(2) {
+        background-image: url(./img/inicio/banner-resp.jpg);
+    }
+
+    .hero-slide:nth-child(3) {
+        background-image: url(./img/inicio/banner2-resp.png);
+    }
+
+    .hero-slide:nth-child(3) .hero-title {
+    margin-bottom: -0.2rem;
+    letter-spacing: -1px;
+    }
+
+
+
+    /* Slide 1 - Centrado */
+.hero-slide:nth-child(1) .hero-slide-content {
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Slide 2 - Derecha */
+.hero-slide:nth-child(2) .hero-slide-content {
+    text-align: left;
+    margin-right: 3rem;
+    margin-left: auto;
+}
+
+/* Slide 3 - Izquierda */
+.hero-slide:nth-child(3) .hero-slide-content {
+    text-align: left;
+    margin-left: 0.5rem;
+    margin-right: auto;
+}
+
+
+
+
+
 
     /*   ///// SECTORES//////   */
     
@@ -2905,6 +2953,7 @@ body {
 
     .quienes-btn {
         font-size: 0.9rem;
+        padding: 1rem 1rem;
     }
 
     .quienes-somos .section-title {
