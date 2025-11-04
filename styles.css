@@ -586,121 +586,7 @@ body {
     opacity: 1;
 }
 
-/* Responsive - Tablets */
-@media (max-width: 1024px) {
-    .quienes-somos {
-        padding: 50px 0;
-    }
 
-    .quienes-content {
-        gap: 2rem;
-    }
-    
-    .quienes-stats {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.85rem;
-    }
-    
-    .stat-item {
-        padding: 1rem 0.65rem;
-    }
-    
-    .stat-number {
-        font-size: 1.4rem;
-    }
-    
-    .stat-label {
-        font-size: 0.7rem;
-    }
-
-    .text-block p {
-        font-size: 0.9rem;
-    }
-}
-
-/* Responsive - Mobile */
-@media (max-width: 768px) {
-    .quienes-somos {
-        padding: 40px 0;
-    }
-
-    .quienes-somos .section-title {
-        font-size: 1.75rem;
-        margin-bottom: 1.75rem;
-    }
-
-    .quienes-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .text-block {
-        padding: 1.15rem;
-    }
-    
-    .text-block p {
-        font-size: 0.9rem;
-    }
-    
-    .intro-text {
-        font-size: 0.95rem !important;
-    }
-    
-    .quienes-stats {
-        grid-template-columns: 1fr;
-        gap: 0.85rem;
-    }
-    
-    .stat-item {
-        padding: 1.15rem 0.85rem;
-    }
-    
-    .video-wrapper {
-        border-width: 2.5px;
-    }
-}
-
-@media (max-width: 480px) {
-    .quienes-somos {
-        padding: 35px 0;
-    }
-
-    .quienes-somos .section-title {
-        font-size: 1.6rem;
-    }
-
-    .quienes-text {
-        gap: 0.85rem;
-    }
-    
-    .text-block {
-        padding: 1rem;
-    }
-    
-    .text-block p {
-        font-size: 0.85rem;
-    }
-    
-    .intro-text {
-        font-size: 0.9rem !important;
-    }
-    
-    .quienes-stats {
-        margin-top: 1.25rem;
-    }
-    
-    .stat-item {
-        padding: 1rem 0.75rem;
-    }
-    
-    .stat-number {
-        font-size: 1.3rem;
-    }
-    
-    .stat-label {
-        font-size: 0.7rem;
-    }
-}
 
 /* Sections */
 
@@ -733,7 +619,16 @@ body {
     margin-bottom: 4rem;
 }
 
-/* Sectores Section */
+/* ============================================
+   SECCIÃ"N NUESTROS SECTORES - COMPLETA
+   Cards con altura uniforme en todos los tamaños
+   ============================================ */
+
+/* ESTILOS BASE */
+#sectores {
+    padding: 80px 0;
+    background-color: #fafafa;
+}
 
 .sectores-subtitle {
     color: rgba(0, 0, 0, 0.8);
@@ -755,6 +650,7 @@ body {
 }
 
 .sector-card {
+    display: flex;
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -778,7 +674,8 @@ body {
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
-    height: 100%;
+    width: 100%;
+    min-height: 380px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -857,6 +754,7 @@ body {
     flex-direction: column;
     gap: 0.5rem;
     width: 100%;
+    justify-content: flex-start;
 }
 
 .sector-card h3 {
@@ -882,6 +780,8 @@ body {
     z-index: 2;
     text-align: left;
     padding-left: 0;
+    flex: 1;
+    margin: 0;
 }
 
 .sector-card li {
@@ -2611,14 +2511,23 @@ body {
     .hero-dot.active {
         width: 28px;
     }
+
+    /*   ///// SECTORES//////   */
+    
+    .sector-card-inner{
+        padding: 1rem 1rem;
+        gap: 0;
+        min-height: 0;
+    }
     
     .section-title {
-        font-size: 1.75rem;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
     }
     
     .section-subtitle {
         font-size: 0.95rem;
-        margin-bottom: 2rem;
+        margin-bottom: 0rem;
     }
     
     .section-container {
@@ -2626,7 +2535,7 @@ body {
     }
     
     .sectores-grid {
-        gap: 1.25rem;
+        gap: 0rem;
     }
 
     .sector-card {
@@ -2642,6 +2551,11 @@ body {
         height: 45px;
         border-radius: 10px;
     }
+
+    .sector-icon-bg {
+        width: 60%;
+        height: 60%;
+    }
     
     .sector-icon-img {
         width: 40px;
@@ -2656,12 +2570,22 @@ body {
         font-size: 11.2px;
     }
     
+    /* MAQUINAS */
+
+    .section-title-maquinas {
+        font-size: 1.6rem;
+    }
+
+    .section-subtitle-maquinas {
+        font-size: 0.95rem;
+    }
+
     .maquinas-gallery {
-        gap: 1.5rem;
+        gap: 2rem;
     }
     
     .maquina-image-large {
-        height: 550px;
+        height: 500px;
     }
     
     .maquina-content {
@@ -2676,12 +2600,40 @@ body {
         font-size: 0.9rem;
     }
     
+    /*SISTEMAS DE PAGO */
+
+    .section-pago {
+        padding: 30px 0;
+    }
+
+    .section-title-pago {
+        font-size: 1.6rem;
+    }
+
+    .section-subtitle-pago {
+        font-size: 0.9rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .payment-video-container {
+    width: 75%;
+    max-width: 320px;
+    margin: 1rem auto;
+    overflow: hidden;
+    border: 3px solid #353535;
+    transition: all 0.3s ease;
+    position: relative;
+    
+    }
+
     .payment-grid {
         gap: 1.5rem;
     }
     
     .payment-item {
-        padding: 1.75rem 1.25rem;
+        padding: 1rem 0rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
     }
     
     .payment-item h4 {
@@ -2698,6 +2650,17 @@ body {
         font-size: 2rem;
     }
     
+ /* TECNOLLGIAS */
+
+    .tech-card-inner {
+        flex-direction: row;
+    }
+
+    .tech-icon-bg {
+        width: 80%;
+        height: 80%;
+    }
+
     .tech-feature {
         padding: 1.75rem 1.25rem;
     }
@@ -2720,7 +2683,6 @@ body {
         justify-items: center;
     }
     
-    /* ============ TECNOLOGÍA MÓVIL PEQUEÑO ============ */
     .tech-section {
         padding: 50px 0;
     }
@@ -2764,6 +2726,8 @@ body {
         font-size: 0.8rem;
         padding: 0.4rem 0.85rem;
     }
+
+    /*EXCELENCIAS */
     
     .excellence-points {
         gap: 1.25rem;
@@ -2780,6 +2744,14 @@ body {
     .excellence-point p {
         font-size: 0.9rem;
     }
+
+    /*CLIENTES*/
+
+    .section-title-clientes {
+        font-size: 1.6rem;
+    }
+
+    /*FOOTER */
     
     .footer {
         padding: 40px 0 20px;
@@ -2850,405 +2822,125 @@ body {
     }
 }
 
-/* ============================================
-   RESPONSIVE - SECCIÃ"N NUESTROS SECTORES
-   ============================================ */
+/* RESPONSIVE DE QUIENES SOMOS */
 
-/* Tablets grandes (max-width: 1200px) */
-@media (max-width: 1200px) {
-    .sectores-grid {
-        max-width: 1000px;
+/* Responsive - Tablets */
+@media (max-width: 1024px) {
+    .quienes-somos {
+        padding: 50px 0;
+    }
+
+    .quienes-content {
         gap: 2rem;
     }
     
-    .sector-card-inner {
-        padding: 2rem 1.75rem;
+    .quienes-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.85rem;
     }
     
-    .sector-icon-wrapper {
-        width: 90px;
-        height: 90px;
+    .stat-item {
+        padding: 1rem 0.65rem;
     }
     
-    .sector-icon-img {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .sector-card h3 {
+    .stat-number {
         font-size: 1.4rem;
     }
     
-    .sector-card li {
-        font-size: 0.95rem;
-        padding: 0.35rem 0;
+    .stat-label {
+        font-size: 0.7rem;
     }
-}
 
-/* Tablets (max-width: 1024px) */
-@media (max-width: 1024px) {
-    #sectores {
-        padding: 60px 0;
-    }
-    
-    .sectores-subtitle {
-        font-size: 1.1rem;
-        margin-bottom: 3rem;
-        padding: 0 2rem;
-    }
-    
-    .sectores-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-        max-width: 700px;
-    }
-    
-    .sector-card-inner {
-        padding: 2rem 1.5rem;
-        gap: 1.25rem;
-    }
-    
-    .sector-icon-wrapper {
-        width: 85px;
-        height: 85px;
-    }
-    
-    .sector-icon-img {
-        width: 48px;
-        height: 48px;
-    }
-    
-    .sector-card h3 {
-        font-size: 1.35rem;
-    }
-    
-    .sector-card li {
+    .text-block p {
         font-size: 0.9rem;
-        padding: 0.3rem 0;
-        padding-left: 1.25rem;
-    }
-    
-    .sector-card li::before {
-        font-size: 1rem;
     }
 }
 
-/* Tablets pequeñas (max-width: 768px) */
+/* Responsive - Mobile */
 @media (max-width: 768px) {
-    #sectores {
-        padding: 50px 0;
+    .quienes-somos {
+        padding: 40px 0;
     }
-    
-    #sectores .section-title {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
-    
-    .sectores-subtitle {
-        font-size: 1rem;
-        margin-bottom: 2.5rem;
-        padding: 0 1rem;
-        line-height: 1.6;
-    }
-    
-    .sectores-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-        max-width: 100%;
-    }
-    
-    /* Resetear animaciones para móvil */
-    .sector-card {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    
-    .sector-card.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .sector-card-inner {
-        padding: 1.75rem 1.25rem;
-        gap: 1rem;
-        border-radius: 20px;
-    }
-    
-    /* Efecto hover táctil mejorado */
-    .sector-card:active .sector-card-inner {
-        transform: scale(0.98);
-        box-shadow: 0 10px 25px rgba(102, 34, 34, 0.25);
-    }
-    
-    .sector-icon-wrapper {
-        width: 75px;
-        height: 75px;
-    }
-    
-    .sector-icon-bg {
-        border-radius: 25px;
-    }
-    
-    .sector-icon-img {
-        width: 42px;
-        height: 42px;
-    }
-    
-    .sector-card h3 {
-        font-size: 1.2rem;
-        margin-bottom: 0.75rem;
-    }
-    
-    .sector-card ul {
-        padding-left: 0;
-    }
-    
-    .sector-card li {
-        font-size: 0.85rem;
-        padding: 0.25rem 0;
-        padding-left: 1.25rem;
-        line-height: 1.5;
-    }
-    
-    .sector-card li::before {
-        font-size: 0.95rem;
-    }
-}
 
-/* Móviles (max-width: 580px) */
-@media (max-width: 580px) {
-    #sectores {
-        padding: 45px 0;
+    .quienes-somos .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .quienes-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
     
-    #sectores .section-title {
-        font-size: 1.85rem;
-        margin-bottom: 0.85rem;
+    .text-block {
+        padding: 1.15rem;
     }
     
-    .sectores-subtitle {
-        font-size: 0.95rem;
-        margin-bottom: 2rem;
+    .text-block p {
+        font-size: 0.9rem;
     }
     
-    .sectores-grid {
-        gap: 1.25rem;
+    .intro-text {
+        font-size: 0.95rem !important;
     }
     
-    .sector-card-inner {
-        padding: 1.5rem 1rem;
+    .quienes-stats {
+        grid-template-columns: 1fr;
         gap: 0.85rem;
     }
     
-    .sector-icon-wrapper {
-        width: 70px;
-        height: 70px;
+    .stat-item {
+        padding: 1.15rem 0.85rem;
     }
     
-    .sector-icon-bg {
-        border-radius: 22px;
-    }
-    
-    .sector-icon-img {
-        width: 38px;
-        height: 38px;
-    }
-    
-    .sector-card h3 {
-        font-size: 1.1rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    .sector-card li {
-        font-size: 0.8rem;
-        padding: 0.2rem 0;
-        padding-left: 1.15rem;
-    }
-    
-    .sector-card li::before {
-        font-size: 0.9rem;
-        left: -2px;
+    .video-wrapper {
+        border-width: 2.5px;
     }
 }
 
-/* Móviles pequeños (max-width: 480px) */
 @media (max-width: 480px) {
-    #sectores {
-        padding: 40px 0;
-    }
-    
-    #sectores .section-title {
-        font-size: 1.75rem;
-        margin-bottom: 0.75rem;
-        letter-spacing: -1px;
-    }
-    
-    .sectores-subtitle {
-        font-size: 0.9rem;
-        margin-bottom: 1.75rem;
-        padding: 0 0.5rem;
-    }
-    
-    .section-container {
-        padding: 0 1rem;
-    }
-    
-    .sectores-grid {
-        gap: 1rem;
-    }
-    
-    .sector-card-inner {
-        padding: 1.25rem 0.85rem;
-        gap: 0.75rem;
-        border-radius: 18px;
-    }
-    
-    .sector-icon-wrapper {
-        width: 65px;
-        height: 65px;
-    }
-    
-    .sector-icon-bg {
-        border-radius: 20px;
-    }
-    
-    .sector-icon-img {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .sector-card h3 {
-        font-size: 1rem;
-        margin-bottom: 0.4rem;
-        letter-spacing: -0.3px;
-    }
-    
-    .sector-card ul {
-        padding-left: 0;
-    }
-    
-    .sector-card li {
-        font-size: 0.75rem;
-        padding: 0.15rem 0;
-        padding-left: 1rem;
-        line-height: 1.4;
-    }
-    
-    .sector-card li::before {
-        font-size: 0.85rem;
-        left: -4px;
-    }
-}
-
-/* Móviles extra pequeños (max-width: 360px) */
-@media (max-width: 360px) {
-    #sectores {
+    .quienes-somos {
         padding: 35px 0;
     }
-    
-    #sectores .section-title {
+
+    .quienes-btn {
+        font-size: 0.9rem;
+    }
+
+    .quienes-somos .section-title {
         font-size: 1.6rem;
     }
-    
-    .sectores-subtitle {
-        font-size: 0.85rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .sectores-grid {
+
+    .quienes-text {
         gap: 0.85rem;
     }
     
-    .sector-card-inner {
+    .text-block {
+        padding: 1rem;
+    }
+    
+    .text-block p {
+        font-size: 0.85rem;
+    }
+    
+    .intro-text {
+        font-size: 0.9rem !important;
+    }
+    
+    .quienes-stats {
+        margin-top: 1.25rem;
+    }
+    
+    .stat-item {
         padding: 1rem 0.75rem;
-        gap: 0.65rem;
     }
     
-    .sector-icon-wrapper {
-        width: 60px;
-        height: 60px;
+    .stat-number {
+        font-size: 1.3rem;
     }
     
-    .sector-icon-bg {
-        border-radius: 18px;
-    }
-    
-    .sector-icon-img {
-        width: 32px;
-        height: 32px;
-    }
-    
-    .sector-card h3 {
-        font-size: 0.95rem;
-    }
-    
-    .sector-card li {
-        font-size: 0.7rem;
-        padding-left: 0.9rem;
-    }
-    
-    .sector-card li::before {
-        font-size: 0.8rem;
-    }
-}
-
-/* Orientación horizontal en móviles */
-@media (max-height: 500px) and (orientation: landscape) {
-    #sectores {
-        padding: 40px 0;
-    }
-    
-    .sectores-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
-        max-width: 100%;
-    }
-    
-    .sector-card-inner {
-        padding: 1.25rem 1rem;
-        min-height: auto;
-    }
-    
-    .sector-icon-wrapper {
-        width: 55px;
-        height: 55px;
-    }
-    
-    .sector-icon-img {
-        width: 30px;
-        height: 30px;
-    }
-    
-    .sector-card h3 {
-        font-size: 0.9rem;
-    }
-    
-    .sector-card li {
+    .stat-label {
         font-size: 0.7rem;
     }
 }
 
-/* Ajuste fino para pantallas entre 480px y 580px */
-@media (min-width: 481px) and (max-width: 580px) {
-    .sector-card-inner {
-        padding: 1.65rem 1.15rem;
-    }
-    
-    .sector-icon-wrapper {
-        width: 72px;
-        height: 72px;
-    }
-    
-    .sector-icon-img {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .sector-card h3 {
-        font-size: 1.15rem;
-    }
-    
-    .sector-card li {
-        font-size: 0.82rem;
-    }
-}
