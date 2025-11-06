@@ -296,6 +296,14 @@ document.addEventListener('touchend', (e) => {
     lastTouchEnd = now;
 }, { passive: false });
 
+// INICIALIZAR TODO AL CARGAR LA PÁGINA
+document.addEventListener('DOMContentLoaded', function() {
+    initializeAutoCarousels();
+    initializeBrandsCarousel();
+    initVideoAutoplay();
+});
+
+
 
 //VIDEO QUIENES SOMOS
 
