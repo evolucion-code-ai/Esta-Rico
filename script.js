@@ -79,7 +79,11 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Fade in animation on scroll
+// ============================================
+// FADE IN ANIMATION ON SCROLL
+// Configuración mejorada para todas las animaciones
+// ============================================
+
 const observerOptions = {
     threshold: 0.15,
     rootMargin: '0px 0px -100px 0px'
@@ -96,7 +100,8 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observar todos los elementos con animación
-document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .sector-card, .tech-card').forEach(el => {
+// Incluye las nuevas clases para Sistemas de Pago
+document.querySelectorAll('.fade-in, .fade-in-title, .slide-in-left, .slide-in-right, .sector-card, .tech-card, .fade-in-down, .slide-in-from-left, .slide-in-from-right').forEach(el => {
     observer.observe(el);
 });
 
@@ -296,15 +301,42 @@ document.addEventListener('touchend', (e) => {
     lastTouchEnd = now;
 }, { passive: false });
 
+// VIDEO QUIENES SOMOS
+function initVideoAutoplay() {
+    const video = document.querySelector('.about-video');
+    const quienesSection = document.querySelector('.quienes-somos');
+    
+    if (!video || !quienesSection) return;
+    
+    if (window.innerWidth > 768) {
+        // Asegurar que el video está muted (requisito de Chrome)
+        video.muted = true;
+        
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Esperar a que la animación de entrada termine antes de reproducir
+                    setTimeout(() => {
+                        video.play().catch(error => {
+                            console.log('Autoplay prevented:', error);
+                        });
+                    }, 1000);
+                } else {
+                    video.pause();
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        videoObserver.observe(quienesSection);
+    }
+}
+
 // INICIALIZAR TODO AL CARGAR LA PÁGINA
 document.addEventListener('DOMContentLoaded', function() {
     initializeAutoCarousels();
     initializeBrandsCarousel();
     initVideoAutoplay();
 });
-
-
-
 
 //VIDEO QUIENES SOMOS
 
