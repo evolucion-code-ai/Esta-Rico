@@ -198,7 +198,7 @@ body {
 .hero-slide:nth-child(1) {
     justify-content: center !important;
     align-items: flex-start !important;
-    padding-top: 5rem;
+    padding-top: 3.5rem;
 }
 
 /* Slide 2 - Derecha */
