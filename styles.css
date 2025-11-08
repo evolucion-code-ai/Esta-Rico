@@ -2680,8 +2680,6 @@ body {
         padding: 1rem;
     }
     
- 
-    
     .hero-subtitle {
         font-size: 0.95rem;
         margin-bottom: 1.5rem;
@@ -2723,9 +2721,7 @@ body {
         font-size: 1rem;
     }
 
-    .hero-slide:nth-child(1) .hero-title {
-        margin-top: 5rem;
-    }
+  
 
     .hero-slide:nth-child(1) .hero-subtitle {
         padding-top: 8rem;
