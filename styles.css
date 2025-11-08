@@ -2722,7 +2722,7 @@ body {
     }
 
     .hero-slide:nth-child(1) .hero-title {
-        margin-top: 0rem;
+        margin-top: 2rem;
     }
 
     .hero-slide:nth-child(1) .hero-subtitle {
