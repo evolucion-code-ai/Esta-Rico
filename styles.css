@@ -2721,7 +2721,9 @@ body {
         font-size: 1rem;
     }
 
-  
+    .hero-slide:nth-child(1) .hero-title {
+        margin-top: 0rem;
+    }
 
     .hero-slide:nth-child(1) .hero-subtitle {
         padding-top: 8rem;
