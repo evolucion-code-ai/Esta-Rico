@@ -538,14 +538,18 @@
         </div>
     </section>
 
-    <!-- Formulario de Contacto -->
+   <!-- Formulario de Contacto -->
 <section class="section formulario-contacto-section" id="formulario-contacto">
     <div class="section-container">
         <h2 class="section-title fade-in-title">Contáctanos</h2>
         <p class="section-subtitle">Completa el formulario y nos pondremos en contacto con vos a la brevedad</p>
         
         <div class="formulario-wrapper slide-in-left">
-            <form class="formulario-contacto" action="https://usebasin.com/f/edca0348f688" method="POST">
+            <form class="formulario-contacto" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="e11010a3-5f5c-44bb-943d-aace23e483c8">
+                <!-- ESTE ES EL CAMPO IMPORTANTE QUE FALTA -->
+                <input type="hidden" name="redirect" value="https://martinadimasi.github.io/Esta-Rico/">
+                
                 <div class="form-row">
                     <div class="form-group">
                         <label for="nombre">Nombre *</label>
@@ -566,7 +570,7 @@
                     
                     <div class="form-group">
                         <label for="telefono">Teléfono *</label>
-                        <input type="tel" id="telefono" name="telefono" required placeholder="Tu télefono">
+                        <input type="tel" id="telefono" name="telefono" required placeholder="Tu teléfono">
                     </div>
                 </div>
                 
