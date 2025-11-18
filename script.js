@@ -363,3 +363,4 @@ function initVideoAutoplay() {
         videoObserver.observe(quienesSection);
     }
 }
+
