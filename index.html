@@ -65,12 +65,18 @@
             </div>
         </div>
         
+    </div>
+        
         <!-- Hero Navigation -->
-        <div class="hero-nav">
-            <span class="hero-dot active"></span>
-            <span class="hero-dot"></span>
-            <span class="hero-dot"></span>
+        <button class="hero-nav-btn hero-prev" onclick="changeHeroSlide(-1)" aria-label="Anterior">❮</button>
+        <button class="hero-nav-btn hero-next" onclick="changeHeroSlide(1)" aria-label="Siguiente">❯</button>
+        
+        <div class="hero-dots">
+            <span class="hero-dot active" onclick="goToHeroSlide(0)"></span>
+            <span class="hero-dot" onclick="goToHeroSlide(1)"></span>
+            <span class="hero-dot" onclick="goToHeroSlide(2)"></span>
         </div>
+    </section>
     </section>
 
    <!-- Quiénes Somos -->
@@ -475,6 +481,33 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="tech-card">
+                    <div class="tech-card-inner">
+                        <div class="tech-icon-wrapper">
+                            <div class="tech-icon-bg"></div>
+                            <img src="./img/iconos/tarjeta-de-debito.png" alt="Billetera Virtual" class="tech-icon-img">
+                    </div>
+                        <div class="tech-card-content">
+                            <h3 class="tech-card-title">Billetera Virtual y Tarjeta de Crédito</h3>
+                            <p class="tech-card-description">incluye todas las formas de pago digitales</p>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- Card 6: Billeteros - NUEVA -->
+                <div class="tech-card">
+                    <div class="tech-card-inner">
+                        <div class="tech-icon-wrapper">
+                            <div class="tech-icon-bg"></div>
+                            <img src="./img/iconos/billetero.png" alt="Billeteros" class="tech-icon-img">
+                        </div>
+                        <div class="tech-card-content">
+                            <h3 class="tech-card-title">Billeteros</h3>
+                            <p class="tech-card-description">Opción destinada a quienes desean abonar en efectivo</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -555,9 +588,9 @@
         <div class="formulario-wrapper slide-in-left">
             <form class="formulario-contacto" action="https://api.web3forms.com/submit" method="POST">
                 <input type="hidden" name="access_key" value="e11010a3-5f5c-44bb-943d-aace23e483c8">
-                <!-- ESTE ES EL CAMPO IMPORTANTE QUE FALTA -->
                 <input type="hidden" name="redirect" value="https://martinadimasi.github.io/Esta-Rico/gracias.html">
                 
+                <!-- Fila 1: Nombre y Apellido -->
                 <div class="form-row">
                     <div class="form-group">
                         <label for="nombre">Nombre *</label>
@@ -570,6 +603,7 @@
                     </div>
                 </div>
                 
+                <!-- Fila 2: Email y Teléfono -->
                 <div class="form-row">
                     <div class="form-group">
                         <label for="email">Email *</label>
@@ -581,7 +615,21 @@
                         <input type="tel" id="telefono" name="telefono" required placeholder="Tu teléfono">
                     </div>
                 </div>
+
+                <!-- Fila 3: Empresa y Cargo (NUEVOS) -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="empresa">Nombre de la Empresa *</label>
+                        <input type="text" id="empresa" name="empresa" required placeholder="Nombre de tu empresa">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cargo">Cargo *</label>
+                        <input type="text" id="cargo" name="cargo" required placeholder="Tu cargo">
+                    </div>
+                </div>
                 
+                <!-- Consulta -->
                 <div class="form-group">
                     <label for="consulta">Consulta *</label>
                     <textarea id="consulta" name="consulta" rows="5" required placeholder="Escribe tu consulta aquí..."></textarea>
@@ -623,9 +671,10 @@
             
             <div class="footer-section">
                 <h3>Síguenos</h3>
-                <p>Redes sociales</p>
-                <p>Newsletter</p>
-                <p>App móvil</p>
+        <div style="display: flex; gap: 5px;">
+            <img src="/img/iconos/instagram.png" style="width: 1rem; height: 1rem;" alt="">
+            <p style="line-height: 1.2;">estaricosrl</p>
+        </div>
             </div>
         </div>
         

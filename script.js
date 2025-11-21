@@ -1,4 +1,4 @@
-// CARRUSEL HERO - Solo automático
+// CARRUSEL HERO - Manual y automático
 let currentHeroSlide = 0;
 let heroAutoplayInterval;
 const heroSlides = document.querySelectorAll('.hero-slide');
@@ -22,10 +22,34 @@ function nextHeroSlide() {
     showHeroSlide(currentHeroSlide);
 }
 
+function changeHeroSlide(direction) {
+    currentHeroSlide += direction;
+    
+    if (currentHeroSlide < 0) {
+        currentHeroSlide = heroSlides.length - 1;
+    } else if (currentHeroSlide >= heroSlides.length) {
+        currentHeroSlide = 0;
+    }
+    
+    showHeroSlide(currentHeroSlide);
+    resetHeroAutoplay();
+}
+
+function goToHeroSlide(index) {
+    currentHeroSlide = index;
+    showHeroSlide(currentHeroSlide);
+    resetHeroAutoplay();
+}
+
 function startHeroAutoplay() {
     heroAutoplayInterval = setInterval(() => {
         nextHeroSlide();
     }, 5000);
+}
+
+function resetHeroAutoplay() {
+    clearInterval(heroAutoplayInterval);
+    startHeroAutoplay();
 }
 
 // Iniciar autoplay del hero
