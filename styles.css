@@ -225,7 +225,7 @@ body {
 /* Imágenes de fondo para cada slide */
 .hero-slide:nth-child(1) {
     background-image: url('./img/inicio/maquinas.jpg');
-    background-position: center 60%;
+    background-position: center 59%;
 }
 
 .hero-slide:nth-child(2) {
@@ -3526,7 +3526,16 @@ body {
 @media (max-width: 380px) {
 
 
+
+    
     /*IAMGENES DEL BANNER */
+
+    .hero-slide:nth-child(1) {
+        background-size: 180%; /* Aumenta este valor para más zoom */
+        background-position: center 100%; /* Ajusta para ocultar el techo */
+    
+    }
+
 
     .hero-slide:nth-child(1) .hero-title {
         font-size: 1.7rem;
@@ -3541,9 +3550,7 @@ body {
 
     .hero-slide:nth-child(3) .hero-title {
         font-size: 1.7rem;
-        margin-top: 5.5rem;
-/*         margin-bottom: -0.2rem;
-        letter-spacing: -1px; */
+        margin-top: 4rem;
     }
 
     .hero-slide:nth-child(1) .hero-subtitle  {
@@ -3560,6 +3567,7 @@ body {
         margin-right: 0rem;
         padding-top: 5rem;
     }
+
     
     .hero-slide:nth-child(2) {
         background-image: url(./img/inicio/banner-resp.jpg);
@@ -3590,5 +3598,53 @@ body {
     margin-left: 0.5rem;
     margin-right: auto;
 } 
+
+
+}
+
+
+
+@media (max-width: 340px) {
+
+    .hero {
+        height: 430px;
+        margin-top: 0px;
+    }
+
+    /*IAMGENES DEL BANNER */
+    .hero-slide:nth-child(1) {
+        background-size: 180%; /* Aumenta este valor para más zoom */
+        background-position: center 100%; /* Ajusta para ocultar el techo */
+    
+    }
+
+    .hero-slide:nth-child(1) .hero-title {
+        font-size: 1.4rem;
+        margin-top: 2rem;
+    }
+    .hero-slide:nth-child(2) .hero-title {
+        font-size: 1.4rem;
+        padding-top: 4rem;
+        padding-bottom: 5rem;
+        
+    }
+    .hero-slide:nth-child(3) .hero-title {
+        font-size: 1.5rem;
+        margin-top: 7rem;
+/*         margin-bottom: -0.2rem;
+        letter-spacing: -1px; */
+    }
+    .hero-slide:nth-child(1) .hero-subtitle  {
+        font-size: 0.8rem;
+    }
+    .hero-slide:nth-child(2) .hero-subtitle {
+        font-size: 0.8rem;
+        padding-top: 3rem;
+    }
+    .hero-slide:nth-child(3) .hero-subtitle {
+        font-size: 0.8rem;
+        margin-right: 0rem;
+        padding-top: 5rem;
+    }
 
 }
