@@ -225,6 +225,7 @@ body {
 /* Imágenes de fondo para cada slide */
 .hero-slide:nth-child(1) {
     background-image: url('./img/inicio/maquinas.jpg');
+    background-position: center 60%;
 }
 
 .hero-slide:nth-child(2) {
