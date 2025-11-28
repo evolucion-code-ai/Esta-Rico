@@ -586,9 +586,8 @@
         <p class="section-subtitle">Completa el formulario y nos pondremos en contacto con vos a la brevedad</p>
         
         <div class="formulario-wrapper slide-in-left">
-            <form class="formulario-contacto" action="https://api.web3forms.com/submit" method="POST">
+            <form class="formulario-contacto" id="contactForm">
                 <input type="hidden" name="access_key" value="e11010a3-5f5c-44bb-943d-aace23e483c8">
-                <input type="hidden" name="redirect" value="<input type="hidden" name="redirect" value="https://estarico.netlify.app/gracias.html">">
                 
                 <!-- Fila 1: Nombre y Apellido -->
                 <div class="form-row">
@@ -616,7 +615,7 @@
                     </div>
                 </div>
 
-                <!-- Fila 3: Empresa y Cargo (NUEVOS) -->
+                <!-- Fila 3: Empresa y Cargo -->
                 <div class="form-row">
                     <div class="form-group">
                         <label for="empresa">Nombre de la Empresa *</label>
@@ -635,11 +634,14 @@
                     <textarea id="consulta" name="consulta" rows="5" required placeholder="Escribe tu consulta aquí..."></textarea>
                 </div>
                 
-                <button type="submit" class="form-submit-btn">
-                    <span>Enviar Consulta</span>
+                <button type="submit" class="form-submit-btn" id="submitBtn">
+                    <span id="btnText">Enviar Consulta</span>
+                    <span id="btnLoader" style="display: none;">⏳ Enviando...</span>
                 </button>
                 
                 <p class="form-info">* Campos obligatorios</p>
+                
+                <div id="formMessage" style="margin-top: 15px; padding: 10px; border-radius: 5px; display: none; text-align: center;"></div>
             </form>
         </div>
     </div>

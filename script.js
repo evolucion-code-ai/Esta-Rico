@@ -388,3 +388,63 @@ function initVideoAutoplay() {
     }
 }
 
+// MANEJO DEL FORMULARIO DE CONTACTO
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    
+    if (form) {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnLoader = document.getElementById('btnLoader');
+            const formMessage = document.getElementById('formMessage');
+            
+            // Deshabilitar botón y mostrar loader
+            submitBtn.disabled = true;
+            btnText.style.display = 'none';
+            btnLoader.style.display = 'inline';
+            formMessage.style.display = 'none';
+            
+            // Obtener datos del formulario
+            const formData = new FormData(form);
+            
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Éxito - redirigir a página de gracias
+                    window.location.href = 'gracias.html';
+                } else {
+                    // Error del servidor
+                    throw new Error('Error en el envío');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                
+                // Mostrar mensaje de error
+                formMessage.style.display = 'block';
+                formMessage.style.backgroundColor = '#fee2e2';
+                formMessage.style.color = '#991b1b';
+                formMessage.style.border = '1px solid #fca5a5';
+                formMessage.textContent = '❌ Hubo un error al enviar el formulario. Por favor, intenta nuevamente.';
+                
+                // Rehabilitar botón
+                submitBtn.disabled = false;
+                btnText.style.display = 'inline';
+                btnLoader.style.display = 'none';
+                
+                // Ocultar mensaje después de 5 segundos
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            }
+        });
+    }
+});
